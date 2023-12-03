@@ -1,3 +1,4 @@
+import pytest
 from functions.level_2.two_square_equation import solve_square_equation
 
 
@@ -40,3 +41,16 @@ def test__solve_square_equation__discriminant_more_then_0():
     const_coefficient=5.0,
     ) == (-5.0, -1.0)
 
+
+@pytest.mark.parametrize(
+    "square_coefficient, linear_coefficient, const_coefficient, result",
+    [
+        (1.0, 1.0, 1.0, (None, None)),
+        (0.0, 1.0, 1.0, (-1.0, None)),
+        (0.0, 0.0, 1.0, (None, None)),
+        (2.0, 4.0, 2.0, (-1.0, -1.0)),
+        (1.0, 6.0, 5.0, (-5.0, -1.0)),
+    ]
+)
+def test__solve_square_equation__(square_coefficient, linear_coefficient, const_coefficient, result):
+    assert solve_square_equation(square_coefficient, linear_coefficient, const_coefficient) == result
