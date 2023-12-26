@@ -19,40 +19,40 @@ def test__calculate_average_daily_expenses__today_float_expense(expense_fix):
 def test__calculate_average_daily_expenses__today_one_expense(expense_fix):
     list_exp_today = [expense_fix()]
 
-    func = calculate_average_daily_expenses(expenses=list_exp_today)
+    calculate_average = calculate_average_daily_expenses(expenses=list_exp_today)
 
-    assert func == 5
+    assert calculate_average == 5
 
 
 def test__calculate_average_daily_expenses__today_yesterday_two_expense(date_fix, expense_fix):
     list_exp_today_yesterday = [expense_fix(),
                                 expense_fix(amount=10,spent_at=date_fix.yesterday)]
 
-    func = calculate_average_daily_expenses(expenses=list_exp_today_yesterday)
+    calculate_average = calculate_average_daily_expenses(expenses=list_exp_today_yesterday)
 
-    assert func == 7.5
+    assert calculate_average == 7.5
 
 
 def test__calculate_average_daily_expenses__today_two_expense(expense_fix):
     list_exp_today_yesterday = [expense_fix(),
                                 expense_fix(amount=10)]
 
-    func = calculate_average_daily_expenses(expenses=list_exp_today_yesterday)
+    calculate_average = calculate_average_daily_expenses(expenses=list_exp_today_yesterday)
 
-    assert func == 15
+    assert calculate_average == 15
 
 
 def test__calculate_average_daily_expenses__tomorrow_one_expense(date_fix, expense_fix):
     list_exp_today_yesterday = [expense_fix(spent_at=date_fix.tomorrow), expense_fix(amount=10)]
 
-    func = calculate_average_daily_expenses(expenses=list_exp_today_yesterday)
+    calculate_average = calculate_average_daily_expenses(expenses=list_exp_today_yesterday)
 
-    assert func == 7.5
+    assert calculate_average == 7.5
 
 
 def test__calculate_average_daily_expenses__old_year_one_expense(date_fix, expense_fix):
     list_exp_today_yesterday = [expense_fix(spent_at=date_fix.old_year), expense_fix(amount=10)]
 
-    func = calculate_average_daily_expenses(expenses=list_exp_today_yesterday)
+    calculate_average = calculate_average_daily_expenses(expenses=list_exp_today_yesterday)
 
-    assert func == 7.5
+    assert calculate_average == 7.5
