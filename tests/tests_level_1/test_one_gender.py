@@ -2,11 +2,11 @@ import pytest
 from functions.level_1.one_gender import genderalize
 
 
-def test__genderalize__gender_is_male():
-    assert genderalize(verb_male='муж', verb_female='жен', gender='male') == 'муж'
+def test__genderalize__gender_is_male(gender_fix):
+    assert genderalize(verb_male=gender_fix.male, verb_female=gender_fix.female, gender='male') == gender_fix.male
 
-def test__genderalize__no_gender():
-    assert genderalize(verb_male='муж', verb_female='жен', gender='') == 'жен'
+def test__genderalize__no_gender(gender_fix):
+    assert genderalize(verb_male=gender_fix.male, verb_female=gender_fix.female, gender='') == gender_fix.female
 
 
 @pytest.mark.parametrize(

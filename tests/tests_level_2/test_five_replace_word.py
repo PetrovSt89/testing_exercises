@@ -7,9 +7,9 @@ def test__replace_word__success_case():
     replace_from = "лучше"
     replace_to = "не хуже"
 
-    func = replace_word(text=text, replace_from=replace_from, replace_to=replace_to)
+    rep_word = replace_word(text=text, replace_from=replace_from, replace_to=replace_to)
 
-    assert func == "Красивое не хуже чем уродливое Явное не хуже чем неявное Простое не хуже чем сложное"
+    assert rep_word == "Красивое не хуже чем уродливое Явное не хуже чем неявное Простое не хуже чем сложное"
 
 
 def test__replace_word__not_change():
@@ -17,9 +17,9 @@ def test__replace_word__not_change():
     replace_from = "ничего"
     replace_to = "нет"
 
-    func = replace_word(text=text, replace_from=replace_from, replace_to=replace_to)
+    rep_word = replace_word(text=text, replace_from=replace_from, replace_to=replace_to)
 
-    assert func == "Красивое лучше чем уродливое"
+    assert rep_word == "Красивое лучше чем уродливое"
 
 
 def test__replace_word__empty_text():
@@ -27,9 +27,9 @@ def test__replace_word__empty_text():
     replace_from = "ничего"
     replace_to = "нет"
 
-    func = replace_word(text=text, replace_from=replace_from, replace_to=replace_to)
+    rep_word = replace_word(text=text, replace_from=replace_from, replace_to=replace_to)
 
-    assert func == ""
+    assert rep_word == ""
 
 
 def test__replace_word__no_replace_from():
@@ -37,9 +37,9 @@ def test__replace_word__no_replace_from():
     replace_from = ""
     replace_to = "нет"
 
-    func = replace_word(text=text, replace_from=replace_from, replace_to=replace_to)
+    rep_word = replace_word(text=text, replace_from=replace_from, replace_to=replace_to)
 
-    assert func == "Красивое лучше чем уродливое"
+    assert rep_word == "Красивое лучше чем уродливое"
 
 
 def test__replace_word__no_replace_to():
@@ -47,9 +47,9 @@ def test__replace_word__no_replace_to():
     replace_from = "лучше"
     replace_to = ""
 
-    func = replace_word(text=text, replace_from=replace_from, replace_to=replace_to)
+    rep_word = replace_word(text=text, replace_from=replace_from, replace_to=replace_to)
 
-    assert func == "Красивое  чем уродливое"
+    assert rep_word == "Красивое  чем уродливое"
 
 
 @pytest.mark.parametrize(
