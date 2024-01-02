@@ -31,3 +31,10 @@ def parse_ineco_expense(sms: SmsMessage, cards: list[BankCard]) -> Expense:
         spent_in=spend_in,
         spent_at=datetime.datetime.strptime(f'{raw_date} {raw_time}', '%d.%m.%y %H:%M'),
     )
+
+def xren(x):
+    return x
+
+def print_hello():
+    xr = xren(10)
+    print(f'Hello {xr}')

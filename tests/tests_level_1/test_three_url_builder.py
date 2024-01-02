@@ -3,24 +3,24 @@ from functions.level_1.three_url_builder import build_url
 from typing import Mapping
 
 
-def test__build_url__None_get_params():
+def test__build_url__None_get_params(loc_host):
     assert build_url(
-        'http://127.0.0.1:5000',
+        loc_host,
         'xrenznaet',
-        None) == 'http://127.0.0.1:5000/xrenznaet'
+        None) == f'{loc_host}/xrenznaet'
 
-def test__build_url__one_get_params():
+def test__build_url__one_get_params(loc_host):
     assert build_url(
-        'http://127.0.0.1:5000',
+        loc_host,
         'xrenznaet',
-        {'lang':'ru'}) == 'http://127.0.0.1:5000/xrenznaet?lang=ru'
+        {'lang':'ru'}) == f'{loc_host}/xrenznaet?lang=ru'
 
 
-def test__build_url__two_get_params():
+def test__build_url__two_get_params(loc_host):
     assert build_url(
-        'http://127.0.0.1:5000',
+        loc_host,
         'xrenznaet',
-        {'page':'2','lang':'ru'}) == 'http://127.0.0.1:5000/xrenznaet?page=2&lang=ru'
+        {'page':'2','lang':'ru'}) == f'{loc_host}/xrenznaet?page=2&lang=ru'
     
 
 def test__build_url__two_params():

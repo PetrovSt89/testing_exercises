@@ -10,3 +10,8 @@ def calculate_average_daily_expenses(expenses: list[Expense]) -> decimal.Decimal
     for expense in expenses:
         total_expenses_dy_day[expense.spent_at.date()] += expense.amount
     return mean(total_expenses_dy_day.values())
+
+
+if __name__ == "__main__":
+    print(mean([1,5]))
+    
