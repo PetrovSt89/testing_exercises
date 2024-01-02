@@ -1,6 +1,7 @@
 import datetime
 import decimal
-from functions.level_1.four_bank_parser import BankCard, SmsMessage, Expense, parse_ineco_expense
+from functions.level_1.four_bank_parser import BankCard, SmsMessage, Expense, parse_ineco_expense, print_hello
+from unittest.mock import patch, Mock
 
 
 amount = 100
@@ -20,4 +21,28 @@ def test__parse_ineco_expense__success_case():
                           owner='vasia'),
                           spent_in='xxx',
                           spent_at=datetime.datetime(2023, 11, 22, 0, 0))
+
+
+def xren_stub(x):
+    m = Mock(return_value=10)
+    return m.return_value
+
+
+def test__print_hello__print():
+    with (
+        patch(target='functions.level_1.four_bank_parser.print') as print_mock,
+        patch('functions.level_1.four_bank_parser.xren', new=xren_stub) as xren_mock,
+    ):
+        print_hello()
+        print_mock.assert_called_once_with('Hello 10')
+
+
+def test__print_hello__print_without_new():
+    with (
+        patch(target='functions.level_1.four_bank_parser.print') as print_mock,
+        patch('functions.level_1.four_bank_parser.xren') as xren_mock,
+    ):
+        xren_mock.return_value = 10
+        print_hello()
+        print_mock.assert_called_once_with('Hello 10')
 
